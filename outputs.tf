@@ -1,3 +1,7 @@
+output "eventhub_clusters_id" {
+  description = "Map of id values across all eventhub_clusters, keyed the same as var.eventhub_clusters"
+  value       = { for k, v in azurerm_eventhub_cluster.eventhub_clusters : k => v.id }
+}
 output "eventhub_clusters_location" {
   description = "Map of location values across all eventhub_clusters, keyed the same as var.eventhub_clusters"
   value       = { for k, v in azurerm_eventhub_cluster.eventhub_clusters : k => v.location }
